@@ -1,0 +1,11 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+<script>
+    var socket = io();
+
+    var d4 = function(){
+        socket.emit('rollDice',{
+            dice: 4
+        });
+    }
+</script>
+<button onclick="d4">Rolar D4</button>
