@@ -2,10 +2,17 @@
 <script>
     var socket = io();
 
-    var d4 = function(){
+    var rollDice = function(x){
         socket.emit('rollDice',{
-            dice: 4
+            dice: x
         });
     }
 </script>
-<button onclick="d4">Rolar D4</button>
+<button onclick="rollDice(3)">Rolar D3</button>
+<button onclick="rollDice(4)">Rolar D4</button>
+<button onclick="rollDice(6)">Rolar D6</button>
+<button onclick="rollDice(8)">Rolar D8</button>
+<button onclick="rollDice(10)">Rolar D10</button>
+<button onclick="rollDice(12)">Rolar D12</button>
+<button onclick="rollDice(20)">Rolar D20</button>
+<button onclick="rollDice(100)">Rolar D100</button>
