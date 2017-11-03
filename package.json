@@ -1,17 +1,36 @@
 {
   "name": "dol",
   "version": "1.0.0",
-  "description": "",
+  "description": "Dolrath (api)",
+  "homepage": "https://github.com/dolrath/dolrath-api#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dolrath/dolrath-api.git"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "game",
+    "rpg"
+  ],
+  "author": "dolrath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dolrath/dolrath-api/issues"
+  },
+  "readmeFilename": "README.md",
+  "engines": {
+    "node": ">=8.9.0"
+  },
   "main": "app.js",
+  "scripts": {
+    "start": "nodemon -L"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
   "dependencies": {
     "express": "^4.16.2",
-    "nodemon": "^1.12.1",
     "socket.io": "^2.0.4"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }
