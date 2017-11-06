@@ -1,19 +1,15 @@
-var express = require('express');
-var app = express();
-var serv = require('http').Server(app);
+'use strict';
 
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/client/index.html');
-})
-app.use('/client', express.static(__dirname + '/client'));
+let app = require('express')();
+let server = require('http').Server(app);
+let io = require('socket.io')(server);
 
-serv.listen(8080);
+io.on('connection', (socket) => {
+  socket.on('roll', dice => {
+    const message = Math.round(Math.random() * dice);
 
-var io = require('socket.io')(serv, {});
-io.sockets.on('connection', function (socket) {
-  console.log('Socket funfando');
+    io.emit('roll', message);    
+  });
+});
 
-  socket.on('rollDice', function (data) {
-    console.log('Rolou d' + data.dice + ' e tirou ' + Math.round(Math.random() * data.dice));
-  })
-})
+server.listen(8080, () => console.log('started on port 8080'));
