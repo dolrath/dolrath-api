@@ -1,11 +1,18 @@
 'use strict';
 
+import pkg from './package.json';
 import express from 'express';
 import http from 'http';
 import io from 'socket.io';
 
 const app = express();
 const server = http.Server(app);
+
+app.get('/', (req, res) => res.json({
+  name: pkg.name,
+  version: pkg.version,
+  message: 'I\'m working...',
+}));
 
 io(server)
   .of('/fights')
@@ -45,4 +52,5 @@ io(server)
       })));
   });
 
-server.listen(8080, () => console.log('started on port 8080'));
+const port = process.env.PORT || 8080;
+server.listen(port, () => console.log(`started on port ${port}`));
