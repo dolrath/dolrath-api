@@ -1,5 +1,5 @@
 {
-  "name": "dol",
+  "name": "dolrath-api",
   "version": "1.0.0",
   "description": "Dolrath (api)",
   "homepage": "https://github.com/dolrath/dolrath-api#readme",
@@ -22,9 +22,9 @@
   "engines": {
     "node": ">=8.9.0"
   },
-  "main": "app.js",
+  "main": "app.mjs",
   "scripts": {
-    "start": "nodemon -L"
+    "start": "nodemon -L --experimental-modules"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
