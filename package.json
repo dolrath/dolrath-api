@@ -22,9 +22,9 @@
   "engines": {
     "node": ">=8.9.0"
   },
-  "main": "app.mjs",
+  "main": "src/app.mjs",
   "scripts": {
-    "start": "nodemon -L --experimental-modules"
+    "start": "nodemon -L --experimental-modules --use_strict"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
