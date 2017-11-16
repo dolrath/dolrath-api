@@ -1,6 +1,10 @@
 export class Player {
-  constructor(id, room) {
-    this.id = id;
-    this.room = room;
+  constructor(email, characters) {
+    this.email = email;
+    this.characters = characters || [];
+  }
+
+  addCharacter(character) {
+    this.characters.push(character);
   }
 }

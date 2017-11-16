@@ -1,3 +1,4 @@
+export * from './character';
 export * from './dice';
 export * from './player';
-export * from './room';
+export * from './race';
