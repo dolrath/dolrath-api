@@ -1,4 +1,4 @@
-import { getRooms } from '../get-rooms';
+import { getRooms } from '../infra/socket';
 
 export function leave(client, io) {
   return async function () {
@@ -6,10 +6,10 @@ export function leave(client, io) {
 
     rooms
       .forEach(room => {
-        room.removePlayer(client.id);
+        room.removeClient(client.id);
 
         const message = {
-          room: room,
+          clients: room.clients,
         };
 
         client.broadcast.to(room.name).emit('room:left', message);
