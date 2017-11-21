@@ -1,11 +1,10 @@
 import neo4j from 'neo4j-driver';
-import config from 'config';
 
-const username = config.get('neo4j.username');
-const password = config.get('neo4j.password');
+const username = process.env.NEO4J_USERNAME;
+const password = process.env.NEO4J_PASSWORD;
 const authBasic = neo4j.v1.auth.basic(username, password);
 
-const host = config.get('neo4j.endpoint');
+const host = process.env.NEO4J_ENDPOINT;
 
 const options = {
   trust: "TRUST_ALL_CERTIFICATES",

@@ -47,5 +47,5 @@ io
     client.on('disconnecting', leave(client, io));
   });
 
-const port = process.env.PORT || 8080;
-server.listen(port, () => console.log(`started on port ${port}`));
+const port = process.env.PORT;
+server.listen(port, () => console.log(`Started on port ${port}`));

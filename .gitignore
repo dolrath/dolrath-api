@@ -18,4 +18,4 @@ bower_components
 .env
 
 package-lock.json
-default.json
+.env
