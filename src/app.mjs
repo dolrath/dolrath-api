@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors())
 
 app.use('/', home());
-app.use('/characters', characters());
+app.use('/', characters());
 app.use('/players', players());
 
 app.options("/*", function(req, res, next){
