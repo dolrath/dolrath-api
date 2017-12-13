@@ -1,10 +1,5 @@
 export class Player {
-  constructor(email, characters) {
+  constructor(email) {
     this.email = email;
-    this.characters = characters || [];
-  }
-
-  addCharacter(character) {
-    this.characters.push(character);
   }
 }

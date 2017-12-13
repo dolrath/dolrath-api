@@ -14,18 +14,6 @@ export async function getPlayer(email) {
     return undefined;
   }
 
-  return data
-    .records
-    .reduce((player, record) => {
-      if (!player) {
-        player = mapPlayer(record);
-      }
-
-      const race = mapRace(record);
-      const character = mapCharacter(race, player)(record);
-
-      player.addCharacter(character);
-
-      return player;
-    }, undefined);
+  const record = data.records[0];
+  return mapPlayer(record);
 }

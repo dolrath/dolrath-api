@@ -8,7 +8,7 @@ export async function getPlayers(email) {
   const data = await database(async session => await session.run(command));
 
   if (!data.records.length) {
-    return undefined;
+    return [];
   }
 
   return data
