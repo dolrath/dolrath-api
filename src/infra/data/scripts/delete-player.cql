@@ -1,8 +1,10 @@
 MATCH
   (player:Player)
-OPTIONAL MATCH
-  (player)-[:PLAYS]->(character:Character)
 WHERE
   player.email = {email}
+WITH
+  player
+MATCH
+  (player)-[:PLAYS]->(character:Character)
 
 DETACH DELETE character, player;
