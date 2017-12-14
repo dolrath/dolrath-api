@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 
 import { join, leave, roll } from './events';
-import { home, characters, players } from './routes';
+import { home, characters, players, races } from './routes';
 
 const app = express();
 const server = http.Server(app);
@@ -18,6 +18,7 @@ app.use(cors())
 app.use('/', home());
 app.use('/', characters());
 app.use('/players', players());
+app.use('/races', races());
 
 app.options("/*", function(req, res, next){
   res.send(200);

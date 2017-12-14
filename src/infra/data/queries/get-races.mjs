@@ -1,9 +1,9 @@
 import { database } from '../';
 import { file } from '../../';
-import { mapPlayer } from '../mappings';
+import { mapRace } from '../mappings';
 
-export async function getPlayers() {
-  const command = await file('./src/infra/data/scripts/get-players.cql');
+export async function getRaces() {
+  const command = await file('./src/infra/data/scripts/get-races.cql');
 
   const data = await database(async session => await session.run(command));
 
@@ -13,5 +13,5 @@ export async function getPlayers() {
 
   return data
     .records
-    .map(record => mapPlayer(record));
+    .map(record => mapRace(record));
 }

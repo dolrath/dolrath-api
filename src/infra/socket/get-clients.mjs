@@ -1,3 +1,5 @@
+import { Rooms } from '.';
+
 export function getClients(room, io) {
   return new Promise((resolve, reject) => {
     io.of('/fights').in(room).clients((err, clients) => {
@@ -6,7 +8,9 @@ export function getClients(room, io) {
         return;
       }
 
-      resolve(clients);
+      const characters = clients.map(client => Rooms.get(room, client));
+
+      resolve(characters);
     });
   });
 }

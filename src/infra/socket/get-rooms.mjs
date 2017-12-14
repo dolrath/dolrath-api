@@ -1,5 +1,4 @@
-import { Room } from '.';
-import { getClients } from './get-clients';
+import { getClients, Room } from '.';
 
 export function getRooms(client, io) {
   return new Promise(async (resolve, reject) => {

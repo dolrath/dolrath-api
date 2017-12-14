@@ -1,9 +1,10 @@
-import { getClients } from '../infra/socket';
+import { getClients, Rooms } from '../infra/socket';
 
 export function join(client, io) {
   return async function (data) {
     client.join(data.room);
 
+    Rooms.add(data.room, client.id, data.character.name);
     const clients = await getClients(data.room, io);
 
     const message = {
