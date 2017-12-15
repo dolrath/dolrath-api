@@ -6,10 +6,10 @@ export function leave(client, io) {
 
     rooms
       .forEach(room => {
-        room.removeClient(client.id);
+        room.removeCharacter(client.id);
 
         const message = {
-          clients: room.clients,
+          characters: room.characters,
         };
 
         client.broadcast.to(room.name).emit('room:left', message);

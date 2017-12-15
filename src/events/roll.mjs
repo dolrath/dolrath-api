@@ -1,13 +1,17 @@
-import { Dice, Player } from '../entities';
+import { Dice } from '../entities';
 
 export function roll(client, io) {
   return function(data) {
-    const player = new Player(data.player.email);
     const dice = new Dice(data.dice.value);
 
     const message = {
-      player: player,
-      dice: dice,
+      character: {
+        name: data.character.name,
+      },
+      dice: {
+        value: dice.value,
+        result: dice.result,
+      },
     };
 
     client.emit('dice:rolled', message);

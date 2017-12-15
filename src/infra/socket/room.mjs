@@ -1,18 +1,22 @@
+import { Rooms } from '.';
+
 export class Room {
-  constructor(name, clients) {
+  constructor(name, characters) {
     this.name = name;
-    this.clients = clients || [];;
+    this.characters = characters || [];;
   }
 
-  removeClient(id) {
-    const client = this.clients.find(client => client.id == id);
-    if (!client) {
+  removeCharacter(client) {
+    const name = Rooms.get(this.name, client);
+    const character = this.characters.find(character => character.name == name);
+
+    if (!character) {
       return;
     }
 
-    const index = this.clients.indexOf(client);
+    const index = this.characters.indexOf(character);
     if (index > -1) {
-      this.clients.splice(index, 1);
+      this.characters.splice(index, 1);
     }
   }
 }

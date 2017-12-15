@@ -1,6 +1,6 @@
 import { Rooms } from '.';
 
-export function getClients(room, io) {
+export function getCharacters(room, io) {
   return new Promise((resolve, reject) => {
     io.of('/fights').in(room).clients((err, clients) => {
       if (err) {
